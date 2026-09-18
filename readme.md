@@ -1,0 +1,39 @@
+This is a simple Nix flake to first set up a command-line environment for
+macOS, which will be expanded to cover NixOS virtual machines and even 
+physical hardware. This assumes nix-command and flakes are enabled in 
+nix.conf.
+
+# Search for a package
+nix search nixpkgs PACKAGE_NAME
+nix search nixpkgs 'python.*'
+
+# Use nix-shell to test packages before installing them. 
+nix-shell -p PACKAGE_NAME
+
+# Add new packages to the command-line-utilities package. 
+First, edit and add the package name to the list following `paths = with pkgs; [` then:
+
+git add flake.nix
+git commit -m "COMMIT MESSAGE"
+nix flake lock
+nix profile install .#default
+
+# Update installed packages. 
+nix flake update # Updates the flake.lock with more up-to-date software. 
+git diff flake.lock # Examine to see what's updated. 
+git add flake.lock
+git commit -m "Updating nixpkgs"
+nix profile install .#default # Actually installs the software. 
+
+# See installed profile packages
+nix profile list
+
+# Maintenance: See generations and rollback
+nix profile history # Lists generations
+nix profile rollback # Rolls back to previous generation. 
+nix profile rollback --to <generation> # To specific generation. 
+
+# Purge unreferenced Nix packages
+nix store du -sh /nix/store # See size of Nix store
+nix-collect-garbage # -d option deletes old generations first, which is more aggressive but limits rollback possibility. 
+
