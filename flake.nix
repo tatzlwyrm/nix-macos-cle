@@ -1,5 +1,5 @@
 {
-  description = "Nix-managed command-line environment";
+  description = "Nix-managed command-line environment for macOS";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -25,6 +25,7 @@
         fastfetch
         qrencode
         gh
+        tlrc
         #bat
         #fd
         #fzf
