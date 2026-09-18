@@ -43,3 +43,8 @@ nix profile add nixpkgs#PACKAGE_NAME # Installs a package outside the declarativ
 nix config check 
 nix store info 
 nix flake --help
+
+## NixOS Updates
+NixOS stores configuration information at /etc/nixos/configuration.nix
+After editing it, upgrade to include packages and switch to the updated version with: 
+sudo nixos-rebuild switch
