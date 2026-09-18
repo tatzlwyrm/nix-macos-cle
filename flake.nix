@@ -24,6 +24,7 @@
         micro
         fastfetch
         qrencode
+        gh
         #bat
         #fd
         #fzf
