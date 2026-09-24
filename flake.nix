@@ -15,6 +15,10 @@
 
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
+      emacs-with-packages = pkgs.emacsWithPackages (epkgs: with epkgs; [
+        olivetti
+      ]);
+      
       cliPackages = pkgs: with pkgs; [
         btop
         git
@@ -26,8 +30,7 @@
         qrencode
         gh
         tlrc
-		emacs
-		emacsPackages.olivetti
+		emacs-with-packages
         #bat
         #fd
         #fzf
