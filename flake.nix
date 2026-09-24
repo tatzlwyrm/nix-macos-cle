@@ -27,6 +27,7 @@
         gh
         tlrc
 		emacs
+		emacsPackages.olivetti
         #bat
         #fd
         #fzf
