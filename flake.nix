@@ -26,6 +26,7 @@
         qrencode
         gh
         tlrc
+		emacs
         #bat
         #fd
         #fzf
