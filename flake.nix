@@ -20,6 +20,7 @@
         git
         htop
         python3
+		uv
         go
         micro
         fastfetch
