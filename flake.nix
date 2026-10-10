@@ -16,6 +16,7 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       cliPackages = pkgs: with pkgs; [
+		wget
         btop
         git
         htop
@@ -27,6 +28,7 @@
         qrencode
         gh
         tlrc
+		xmrig
 		((emacsPackagesFor emacs).withPackages (epkgs: with epkgs; [
 		    olivetti
 		  ]))
@@ -36,7 +38,6 @@
         #jq
         #ripgrep
         #tree
-        #wget
       ];
     in
     {
